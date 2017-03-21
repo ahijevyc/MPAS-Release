@@ -968,9 +968,9 @@ module isobaric_diagnostics
    
        do icol = 1, ncol
           if(pres_out(icol,k) .lt. pres_in(icol,1)) then
-             field_out(icol,k) = field_in(icol,1)*pres_out(icol,k)/pres_in(icol,1)
+             field_out(icol,k) = -999.
           elseif(pres_out(icol,k) .gt. pres_in(icol,nlev_in)) then
-             field_out(icol,k) = field_in(icol,nlev_in)
+             field_out(icol,k) = -999.
           else
              dpu = pres_out(icol,k) - pres_in(icol,kupper(icol))
              dpl = pres_in(icol,kupper(icol)+1) - pres_out(icol,k)
